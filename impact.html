@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gaza Disciplinary Camp | Our Impact</title><meta name="description" content="Gaza Disciplinary Camp youth development, discipline, education, skills and leadership.">
+<link rel="icon" href="assets/logo.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#102f25;--green:#075b3e;--green2:#043d2b;--gold:#ffbd08;--cream:#fffdf7;--white:#fff;--muted:#66716b;--line:#dfe4df;--shadow:0 16px 38px rgba(0,0,0,.18)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:16px/1.55 Inter,Arial,sans-serif;background:#fff}
+a{color:inherit}
+button{font:inherit}
+.container{width:min(1480px,92%);margin:auto}
+.header{position:absolute;top:0;left:0;right:0;z-index:20;background:rgba(3,54,39,.78);backdrop-filter:blur(9px);border-bottom:1px solid rgba(255,255,255,.13)}
+.nav{min-height:112px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:16px;color:#fff;text-decoration:none;font-weight:900;letter-spacing:.5px;line-height:1.05;font-size:clamp(1.35rem,2.5vw,2.6rem)}
+.brand img{width:96px;height:96px;border-radius:50%;object-fit:cover;background:#fff;border:4px solid var(--gold)}
+.brand span{display:block;max-width:270px}
+.brand small{display:block;color:var(--gold);font-size:.53em;letter-spacing:.2px;margin-top:5px}
+.links{display:flex;gap:clamp(12px,2.2vw,36px);align-items:center}
+.links a{color:#fff;text-decoration:none;font-weight:800;font-size:clamp(.78rem,1.05vw,1rem);white-space:nowrap;transition:color .2s}
+.links a:hover,.links a.active{color:var(--gold)}
+.links a.active{border-bottom:4px solid var(--gold);padding-bottom:10px}
+.links a.apply-link{background:var(--gold);color:#143426;padding:15px 27px;border-radius:40px;font-size:1rem}
+.menu{display:none;background:none;border:0;color:#fff;font-size:32px;cursor:pointer}
+.impact-hero{min-height:100vh;position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;padding:145px 0 55px;background:linear-gradient(180deg,rgba(3,30,21,.18) 0%,rgba(3,30,21,.20) 36%,rgba(3,30,21,.12) 68%,rgba(3,30,21,.25) 100%),url('assets/hero.jpg') center center/cover no-repeat}
+.impact-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.18),transparent 70%);pointer-events:none}
+.impact-content{position:relative;z-index:1;width:100%}
+.hero-heading{text-align:center;margin:20px auto 54px;text-shadow:0 3px 16px rgba(0,0,0,.45)}
+.hero-heading h1{font:900 clamp(4rem,8vw,8.2rem)/.88 'Barlow Condensed',Impact,sans-serif;text-transform:uppercase;letter-spacing:1px;margin:0}
+.hero-heading h1 span{color:var(--gold)}
+.hero-heading p{font-size:clamp(1.15rem,2.2vw,2rem);font-weight:800;font-style:italic;margin:14px 0 0}
+.heading-swoosh{width:240px;height:9px;border-top:7px solid var(--gold);border-radius:50%;margin:18px auto 0;transform:rotate(-1deg)}
+.impact-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;align-items:stretch}
+.impact-card{position:relative;text-align:center;background:rgba(255,253,247,.97);color:#111d17;border-radius:22px;padding:78px 24px 25px;min-height:218px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center}
+.impact-icon{position:absolute;top:-34px;left:50%;transform:translateX(-50%);width:102px;height:102px;border-radius:50%;display:grid;place-items:center;background:var(--green);border:5px solid #fff;color:#fff;font-size:48px;box-shadow:0 5px 16px rgba(0,0,0,.18)}
+.impact-card:nth-child(even) .impact-icon{background:#f5a900}
+.impact-card h2{font:800 clamp(1.35rem,2vw,1.8rem)/1.08 'Barlow Condensed',Inter,sans-serif;color:#063d2b;margin:5px 0 12px}
+.impact-card p{font-size:clamp(.95rem,1.25vw,1.18rem);line-height:1.42;margin:0;flex:1}
+.card-line{width:58%;height:6px;border-radius:8px;background:var(--gold);margin:16px auto 0}
+.mission-bar{margin-top:30px;min-height:82px;padding:12px 32px;background:linear-gradient(90deg,#00472c,#003b27);border:2px solid rgba(255,190,8,.85);border-radius:24px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.mission-message{display:flex;align-items:center;gap:25px;font-size:clamp(1rem,1.65vw,1.5rem);font-weight:800;font-style:italic}
+.trophy{font-size:42px;color:var(--gold);font-style:normal}
+.mission-button{flex-shrink:0;background:var(--gold);color:#123a29;text-decoration:none;font-weight:900;font-size:1.15rem;padding:15px 30px;border-radius:40px;white-space:nowrap}
+.mission-button:hover,.links a.apply-link:hover{background:#ffd04a;transform:translateY(-2px)}
+.footer{background:var(--green2);color:#dce7df;padding:26px 0;text-align:center;font-size:.9rem}
+.footer strong{color:#fff}
+.footer a{color:var(--gold);font-weight:800;text-decoration:none}
+@media(max-width:1100px){
+ .nav{min-height:92px}.brand img{width:76px;height:76px}.links{gap:13px}.links a{font-size:.78rem}.links a.apply-link{padding:12px 17px}
+ .impact-cards{gap:15px}.impact-card{padding-left:15px;padding-right:15px}
+}
+@media(max-width:850px){
+ .nav{min-height:82px}.brand img{width:64px;height:64px}.menu{display:block}
+ .links{display:none}.links.open{display:flex;position:absolute;top:82px;left:0;right:0;background:rgba(3,54,39,.97);padding:22px;flex-direction:column;align-items:stretch;text-align:center;gap:18px}
+ .links.open a{font-size:1rem}.links a.active{border:0;padding-bottom:0}
+ .impact-hero{min-height:100vh;padding:125px 0 34px;background-position:center}
+ .hero-heading{margin:15px auto 48px}.impact-cards{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:54px}
+ .impact-card{min-height:205px}.mission-bar{margin-top:55px}
+}
+@media(max-width:560px){
+ .container{width:90%}.brand{font-size:1.25rem;gap:10px}.brand img{width:58px;height:58px}
+ .impact-hero{padding-top:110px;min-height:auto;background-position:55% center}
+ .hero-heading{margin:16px auto 48px}.hero-heading h1{font-size:clamp(3.5rem,16vw,5.2rem)}
+ .hero-heading p{font-size:1.05rem}.heading-swoosh{width:170px}
+ .impact-cards{grid-template-columns:1fr;gap:54px}
+ .impact-card{min-height:190px;padding:72px 22px 22px}
+ .impact-card h2{font-size:1.65rem}.impact-card p{font-size:1.02rem}
+ .mission-bar{margin-top:55px;padding:20px 18px;flex-direction:column;text-align:center;gap:14px;border-radius:18px}
+ .mission-message{justify-content:center;gap:12px;font-size:1rem}.trophy{font-size:34px}
+ .mission-button{width:100%;text-align:center;font-size:1rem}
+}
+</style></head><body><header class="header">
+<nav class="nav container">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.jpg" alt="Gaza Disciplinary Camp logo">
+    <span>GAZA<small>DISCIPLINARY CAMP</small></span>
+  </a>
+  <button class="menu" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  <div class="links" id="links">
+    <a href="index.html">⌂&nbsp; Home</a>
+    <a href="about.html">★&nbsp; About Us</a>
+    <a href="programmes.html">▦&nbsp; Programmes</a>
+    <a href="fees.html">▤&nbsp; Fees</a>
+    <a class="active" href="impact.html">▥&nbsp; Our Impact</a>
+    <a href="contact.html">✉&nbsp; Contact</a>
+    <a class="apply-link" href="application.html">Apply Now&nbsp; ›</a>
+  </div>
+</nav>
+</header><main id="top">
+<section class="impact-hero" id="impact">
+  <div class="container impact-content">
+    <div class="hero-heading">
+      <h1>Our <span>Impact</span></h1>
+      <p>Building a Better Future for Our Youth</p>
+      <div class="heading-swoosh"></div>
+    </div>
+    <div class="impact-cards">
+      <article class="impact-card">
+        <div class="impact-icon" aria-hidden="true">♟</div>
+        <h2>Youth Development</h2>
+        <p>Empowering young people with discipline and confidence.</p>
+        <div class="card-line"></div>
+      </article>
+      <article class="impact-card">
+        <div class="impact-icon" aria-hidden="true">🎓</div>
+        <h2>Education &amp; Skills</h2>
+        <p>Equipping youth with knowledge and practical skills.</p>
+        <div class="card-line"></div>
+      </article>
+      <article class="impact-card">
+        <div class="impact-icon" aria-hidden="true">✓</div>
+        <h2>Leadership</h2>
+        <p>Developing responsible and positive future leaders.</p>
+        <div class="card-line"></div>
+      </article>
+      <article class="impact-card">
+        <div class="impact-icon" aria-hidden="true">🤝</div>
+        <h2>Community Impact</h2>
+        <p>Building safer, stronger and united communities.</p>
+        <div class="card-line"></div>
+      </article>
+    </div>
+    <div class="mission-bar">
+      <div class="mission-message"><span class="trophy" aria-hidden="true">🏆</span><span>Together, we are shaping a disciplined, educated and hopeful generation.</span></div>
+      <a class="mission-button" href="application.html">Join Our Mission&nbsp; ›</a>
+    </div>
+  </div>
+</section>
+</main><footer class="footer"><div class="container"><p><strong>Gaza Disciplinary Camp</strong> — Building Discipline, Developing Character, Creating Future Leaders.</p><p><a href="https://www.youtube.com/@Gazadisciplinarycamp" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-weight:800;text-decoration:none">▶ YouTube Channel</a></p><p>© 2026 Gaza Disciplinary Camp. All rights reserved.</p></div></footer>
+<script>
+function updatePrice(){const d=document.getElementById('duration').value,l=document.getElementById('price-label'),p=document.getElementById('price'),c=document.getElementById('price-choice'),box=document.getElementById('priceBox');const td=document.getElementById('feeTableDuration'),ty=document.getElementById('feeTableDays'),tf=document.getElementById('feeTableFee'),te=document.getElementById('feeTableEquipment'),desc=document.getElementById('equipmentDescription'),list=document.getElementById('equipmentList');const m={'week':{label:'1 Week',days:'7',fee:'R1,500',message:'1-week camp selected.',items:['⚽ Sports and team-building equipment','📊 Respect and accountability','📅 3 days monitoring after the camp']},'15days':{label:'15 Days',days:'15',fee:'R3,800',message:'15-day camp selected.',items:['⚽ Sports and team-building equipment','📊 Respect and accountability','💻 Computers and computer-learning equipment','📱 Tablets for supervised educational activities','📅 7 days monitoring after the camp']},'month':{label:'1 Month',days:'30',fee:'R4,500',message:'1-month camp selected.',items:['💻 Computers and computer-learning equipment','📱 Tablets for supervised educational activities','🏋️ Gym and fitness equipment for exercise and weight-loss goals','⚽ Sports and team-building equipment','📚 Educational and practical learning materials','📅 7 days monitoring after the camp','📊 Respect and accountability']}};if(!m[d]){l.textContent='Select a duration';p.textContent='-';c.textContent='Choose a camp duration to view the correct fee.';td.textContent='Please select';ty.textContent='-';tf.textContent='-';te.textContent='-';desc.textContent='Select a camp duration above to view exactly what is included.';list.innerHTML='';return}const x=m[d];l.textContent=x.label;p.textContent=x.fee;c.textContent=x.message;td.textContent=x.label;ty.textContent=x.days;tf.textContent=x.fee;te.textContent='Included';desc.textContent=x.label+' selected — the camp fee includes the following:';list.innerHTML=x.items.map(item=>'<li>'+item+'</li>').join('');box.classList.remove('updated');void box.offsetWidth;box.classList.add('updated')}
+function updateApplicationFee(){const d=document.getElementById('applicationDuration').value;const packages={'7 Days':{fee:'R1,500',days:'7',items:['⚽ Sports and team-building equipment','📊 Respect and accountability','📅 3 days monitoring after the camp']},'15 Days':{fee:'R3,800',days:'15',items:['⚽ Sports and team-building equipment','📊 Respect and accountability','💻 Computers and computer-learning equipment','📱 Tablets for supervised educational activities','📅 7 days monitoring after the camp']},'30 Days':{fee:'R4,500',days:'30',items:['💻 Computers and computer-learning equipment','📱 Tablets for supervised educational activities','🏋️ Gym and fitness equipment for exercise and weight-loss goals','⚽ Sports and team-building equipment','📚 Educational and practical learning materials','📅 7 days monitoring after the camp','📊 Respect and accountability']}};const x=packages[d];const fee=document.getElementById('applicationFee');const tableEquipment=document.getElementById('selectedEquipment');const tableDuration=document.getElementById('selectedDuration');const tableDays=document.getElementById('selectedDays');const tableFee=document.getElementById('selectedTableFee');const list=document.getElementById('applicationEquipmentList');const selectedFee=x?x.fee:'';fee.value=selectedFee;if(x){fee.setAttribute('aria-label','Applicable camp fee: '+selectedFee);tableDuration.textContent=d;tableDays.textContent=x.days;tableFee.textContent=selectedFee;tableEquipment.textContent='Included';list.innerHTML=x.items.map(item=>'<li>'+item+'</li>').join('')}else{fee.removeAttribute('aria-label');tableDuration.textContent='Please select';tableDays.textContent='-';tableFee.textContent='-';tableEquipment.textContent='-';list.innerHTML='<li>Select a duration above to view all package inclusions.</li>'}}
+function validateApplication(){const age=Number(document.getElementById('childAge').value);if(!Number.isFinite(age)||age<9){alert('The minimum age for Gaza Disciplinary Camp is 9 years.');document.getElementById('childAge').focus();return false}if(!document.getElementById('consent').checked){alert('Please confirm your Parent/Guardian consent before submitting the application.');return false}if(!document.getElementById('declaration').checked){alert('Please confirm the declaration before submitting the application.');return false}return true}
+document.addEventListener('DOMContentLoaded',()=>{const params=new URLSearchParams(window.location.search);if(params.get('submitted')==='success'){const n=document.getElementById('successNotice');const toast=document.getElementById('successToast');if(n){n.classList.add('show');n.scrollIntoView({behavior:'smooth',block:'center'});}if(toast){toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),8000);}history.replaceState({},document.title,window.location.pathname+'#application');}updatePrice();updateApplicationFee();});
+function toggleMenu(){const links=document.getElementById('links'),btn=document.querySelector('.menu');links.classList.toggle('open');btn.setAttribute('aria-expanded',links.classList.contains('open'))}document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('links').classList.remove('open');document.querySelector('.menu').setAttribute('aria-expanded','false')}));
+</script></body></html>

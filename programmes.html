@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gaza Disciplinary Camp | Our Programmes</title>
+<meta name="description" content="Explore Gaza Disciplinary Camp programmes in youth discipline, education, skills development, leadership and community service.">
+<link rel="icon" href="assets/logo.jpg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--green:#075b3e;--deep:#063d32;--gold:#ffdc00;--ink:#142b35;--muted:#53636a;--pale:#eef8f4;--line:#dce5e1;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font:15px/1.6 Inter,Arial,sans-serif;background:linear-gradient(rgba(255,255,255,.93),rgba(255,255,255,.93)),url('assets/TEAM.jpg') center center/cover fixed no-repeat}a{color:inherit}.container{width:min(1180px,92%);margin:auto}
+header{background:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 12px #00000012}
+.nav{min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;min-width:260px}
+.brand img{width:76px;height:76px;object-fit:contain}
+.brand-copy{line-height:1.2}.brand-copy strong{display:block;font-size:clamp(1rem,2vw,1.35rem);font-weight:900}
+.brand-copy span{display:block;font-size:.86rem;font-weight:700}.brand-copy em{display:block;color:var(--green);font-style:normal;font-weight:700;margin-top:5px;font-size:.85rem}
+.links{display:flex;align-items:center;gap:clamp(12px,2vw,28px)}
+.links a{text-decoration:none;font-weight:700;font-size:.85rem;white-space:nowrap}
+.links a:hover,.links a.active{color:var(--green)}
+.menu{display:none;border:0;background:var(--green);color:#fff;border-radius:7px;padding:8px 12px;font-size:1.3rem;cursor:pointer}
+.hero{min-height:360px;color:#fff;display:flex;align-items:center;background:linear-gradient(90deg,rgba(3,39,27,.94),rgba(3,39,27,.76) 55%,rgba(3,39,27,.25)),url('assets/hero.jpg') center 38%/cover no-repeat}
+.hero-inner{padding:38px 0;max-width:680px}.hero h1{font-size:clamp(2.25rem,4vw,3.2rem);line-height:1.08;margin:0 0 12px;font-weight:900;letter-spacing:-1px}
+.hero h1 span{color:var(--gold)}.hero p{max-width:590px;margin:0;font-size:.98rem;font-weight:600}
+.tag{display:inline-block;background:var(--gold);color:#172b1d;padding:9px 18px;border-radius:30px;font-size:.86rem;font-weight:900;margin-top:15px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:19px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:9px;text-decoration:none;font-weight:800;border:2px solid transparent;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-1px)}.btn-gold{background:var(--gold);color:#172b1d}.btn-outline{border-color:#fff;color:#fff}.btn-green{background:var(--green);color:#fff}
+.features{display:grid;grid-template-columns:repeat(5,1fr);padding:20px 0 18px}
+.feature{text-align:center;padding:0 14px;border-right:1px solid var(--line)}.feature:last-child{border:0}
+.symbol{font-size:2rem;color:var(--green);line-height:1.2}.feature strong{display:block;margin:6px 0 3px;font-size:.91rem}.feature p{margin:0;font-size:.8rem;line-height:1.4;color:var(--muted)}
+.page-section{padding:48px 0 58px}.section-heading{text-align:center;max-width:760px;margin:0 auto 30px}
+.kicker{color:var(--green);font-size:.78rem;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.section-heading h2{font-size:clamp(1.8rem,3vw,2.35rem);line-height:1.15;color:var(--deep);margin:7px 0 10px}
+.section-heading p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:23px;box-shadow:0 8px 24px #0a3b2610}
+.card .number{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:50%;background:var(--gold);color:#172b1d;font-weight:900;margin-bottom:12px}
+.card h3{font-size:1.1rem;line-height:1.2;color:var(--green);margin:0 0 10px}
+.card ul{margin:0;padding-left:19px;color:var(--muted)}.card li{margin:5px 0}
+.pale-section{background:var(--pale);padding:38px 0}
+.note{border-left:5px solid var(--gold);background:#fff;padding:17px 20px;border-radius:8px;color:var(--ink);margin-top:24px}
+.fee-wrap{max-width:820px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:15px;padding:28px;box-shadow:0 8px 24px #0a3b2610}
+label{display:block;font-weight:800;font-size:.9rem;margin:0 0 7px}
+.control{width:100%;padding:12px 13px;border:1px solid #cbd8d1;border-radius:8px;background:#fff;color:var(--ink);font:inherit}
+.price{margin-top:16px;background:var(--deep);color:#fff;border-radius:11px;padding:19px;text-align:center}
+.price small{display:block;color:#dcebe3;font-weight:700}.price strong{display:block;color:var(--gold);font-size:2.6rem;line-height:1.2;font-weight:900}
+.price-choice{font-size:.85rem;color:#e4eee8;margin-top:5px}
+.table-wrap{margin-top:18px;overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+table{width:100%;border-collapse:collapse;background:#fff}th{background:var(--green);color:#fff;text-align:left;padding:12px;font-size:.85rem}td{padding:12px;border-top:1px solid var(--line);font-weight:700}td:nth-child(3){color:var(--green)}
+.included{margin-top:17px;padding:16px 18px;background:var(--pale);border-left:4px solid var(--gold);border-radius:7px}
+.included p{margin:6px 0;color:var(--muted)}.included ul{margin:8px 0 0;padding-left:22px;color:var(--muted)}.included li{margin:4px 0}
+.cta{background:var(--gold);padding:27px 0}.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.cta h2{font-size:1.45rem;line-height:1.2;margin:0;color:#172b1d}
+footer{background:var(--deep);color:#fff}.footer-main{display:grid;grid-template-columns:1.1fr 1.5fr 1fr;gap:24px;align-items:center;padding:18px 0}
+.footer-brand{display:flex;align-items:center;gap:12px}.footer-brand img{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:5px}
+.footer-brand strong{display:block;line-height:1.2}.footer-brand small{font-size:.72rem}.footer-contact{font-size:.78rem;line-height:1.9}
+.social{text-align:right}.social p{margin:6px 0 0;font-size:.74rem}.social a{display:inline-flex;align-items:center;justify-content:center;width:35px;height:35px;border-radius:50%;background:#fff;color:var(--green);font-weight:900;text-decoration:none;margin-left:7px}
+.social a:hover{background:var(--gold)}.copyright{background:#052d27;padding:9px 0;font-size:.7rem}.copyright .container{display:flex;justify-content:space-between;gap:15px}
+@media(max-width:950px){.nav{min-height:80px}.brand img{width:60px;height:60px}.links{display:none}.menu{display:block}.links.open{display:flex;position:absolute;top:80px;left:0;right:0;padding:18px;background:#fff;box-shadow:0 8px 15px #0002;flex-direction:column;align-items:stretch}.links.open a{padding:8px;text-align:center}.cards{grid-template-columns:1fr 1fr}.footer-main{grid-template-columns:1fr 1fr}.social{grid-column:1/-1;text-align:left}.social a:first-child{margin-left:0}}
+@media(max-width:620px){.brand{min-width:0}.brand-copy strong{font-size:.95rem}.brand-copy span,.brand-copy em{font-size:.7rem}.brand img{width:52px;height:52px}.hero{min-height:330px;background-position:58% center}.hero h1{font-size:2.25rem}.hero p{font-size:.9rem}.features{grid-template-columns:1fr 1fr;gap:16px 0}.feature:nth-child(2n){border-right:0}.feature:last-child{grid-column:1/-1}.page-section{padding:36px 0 42px}.cards{grid-template-columns:1fr}.fee-wrap{padding:19px}.cta-inner{align-items:flex-start;flex-direction:column}.footer-main{grid-template-columns:1fr}.social{grid-column:auto}.copyright .container{display:block;text-align:center}.copyright .container span{display:block;margin-top:5px}.btn{flex:1}}
+</style></head><body>
+<header><nav class="nav container" aria-label="Main navigation">
+<a class="brand" href="index.html"><img src="assets/logo.jpg" alt="Gaza Disciplinary Camp logo"><span class="brand-copy"><strong>GAZA DISCIPLINARY CAMP</strong><span>Building Discipline, Developing Character</span><em>Discipline • Character • Growth</em></span></a>
+<button class="menu" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+<div class="links" id="links"><a href="index.html">Home</a><a href="about.html">About Us</a><a class="active" href="programmes.html">Our Programme</a><a href="fees.html">Camp Fees</a><a href="application.html">Apply Now</a><a href="contact.html">Contact</a></div>
+</nav></header>
+
+<main>
+<section class="hero"><div class="container"><div class="hero-inner">
+<h1>Our <span>Programmes.</span><br>Building Skills for Life.</h1>
+<p>Five practical pathways designed to support personal growth, positive behaviour and responsible participation in society.</p>
+<div class="tag">Discipline • Character • Growth</div>
+<div class="actions"><a class="btn btn-gold" href="application.html">Apply Now</a><a class="btn btn-outline" href="fees.html">View Camp Fees</a></div>
+</div></div></section>
+<section class="container features" aria-label="Our programme focus areas">
+<div class="feature"><div class="symbol">🎓</div><strong>Education</strong><p>Learning support and life skills</p></div>
+<div class="feature"><div class="symbol">♟</div><strong>Skills Development</strong><p>Practical skills for the future</p></div>
+<div class="feature"><div class="symbol">🛡</div><strong>Character Building</strong><p>Respect and responsibility</p></div>
+<div class="feature"><div class="symbol">♙</div><strong>Leadership</strong><p>Confidence and decision-making</p></div>
+<div class="feature"><div class="symbol">👥</div><strong>Community Support</strong><p>Positive community participation</p></div>
+</section>
+<section class="page-section"><div class="container">
+<div class="section-heading"><div class="kicker">Structured development</div><h2>Five Pathways for Positive Growth</h2><p>Our programme areas are designed to encourage young people aged 9 and above to develop practical abilities, confidence and responsible habits.</p></div>
+<div class="cards">
+<article class="card"><span class="number">01</span><h3>Youth Discipline &amp; Character</h3><ul><li>Discipline training</li><li>Leadership exercises</li><li>Team building</li><li>Confidence building</li><li>Respect and responsibility</li><li>Goal setting</li></ul></article>
+<article class="card"><span class="number">02</span><h3>Education Support</h3><ul><li>Study support</li><li>Homework assistance</li><li>Career guidance</li><li>Motivational talks</li><li>Reading programmes</li><li>Academic goal setting</li></ul></article>
+<article class="card"><span class="number">03</span><h3>Skills Development</h3><ul><li>Computer literacy</li><li>Communication</li><li>Entrepreneurship awareness</li><li>Practical skills</li><li>Problem solving</li><li>Creative skills</li></ul></article>
+<article class="card"><span class="number">04</span><h3>Leadership Development</h3><ul><li>Leadership principles</li><li>Decision making</li><li>Public speaking</li><li>Team management</li><li>Community responsibility</li></ul></article>
+<article class="card"><span class="number">05</span><h3>Community Service</h3><ul><li>Community clean-ups</li><li>Environmental projects</li><li>Awareness campaigns</li><li>Helping vulnerable community members</li></ul></article>
+<article class="card"><span class="number">✓</span><h3>Our Approach</h3><p>We promote positive guidance, dignity, appropriate supervision and age-appropriate activities. Our aim is to help young people make better choices and see a positive path forward.</p></article>
+</div>
+<div class="note"><strong>Child safety comes first.</strong> The camp’s approach is intended to guide and support young people, not to abuse, humiliate or victimise them. Participation should involve a parent or legal guardian, and activities should be safe, respectful and age-appropriate.</div>
+</div></section>
+</main>
+<section class="cta"><div class="container cta-inner"><h2>Take the next step towards positive growth.</h2><a class="btn btn-green" href="application.html">Apply Now</a></div></section>
+<footer><div class="container footer-main">
+<div class="footer-brand"><img src="assets/logo.jpg" alt="Gaza Disciplinary Camp logo"><div><strong>GAZA</strong><strong>DISCIPLINARY CAMP</strong><small>Building Discipline, Developing Character</small></div></div>
+<div class="footer-contact">083 611 5099 | 081 875 8707<br>Disciplinary.Futurity@gmail.com<br>Gauteng, Johannesburg, South Africa</div>
+<div class="social" aria-label="Social media links"><a href="https://www.facebook.com/profile.php?id=61596232821783" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a><a href="https://wa.me/27836115099" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">◉</a><a href="https://www.youtube.com/@Gazadisciplinarycamp" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a><p>Follow us for updates</p></div>
+</div><div class="copyright"><div class="container"><span>© 2026 Gaza Disciplinary Camp. All rights reserved.</span><span>Discipline • Character • Growth</span></div></footer>
+<script>
+function toggleMenu(){const links=document.getElementById('links'),btn=document.querySelector('.menu');links.classList.toggle('open');btn.setAttribute('aria-expanded',links.classList.contains('open'))}
+document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('links').classList.remove('open');document.querySelector('.menu').setAttribute('aria-expanded','false')}));
+</script>
+</body></html>
