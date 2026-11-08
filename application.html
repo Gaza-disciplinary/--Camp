@@ -60,15 +60,33 @@ label{font-weight:800;display:block;margin-bottom:8px}.control{width:100%;paddin
 <button class="menu" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
 <div class="links" id="links">
 <a href="index.html">Home</a><a href="about.html">About</a><a href="meaning.html">What It Means</a><a href="programmes.html">Programmes</a><a href="fees.html">Fees</a><a class="nav-apply" href="application.html">Apply</a><a href="impact.html">Impact</a><a href="contact.html">Contact</a><a href="https://www.youtube.com/@Gazadisciplinarycamp" target="_blank" rel="noopener noreferrer">YouTube ▶</a>
-</div></nav></header><main id="top"><section class="page-hero"><div class="container"><div class="eyebrow">Discipline • Character • Growth</div><h1>Camp Application</h1><p>Apply to join Gaza Disciplinary Camp and take the next step towards positive growth, responsibility and leadership.</p></div></section><section id="application" class="application"><div class="container"><div class="section-head"><div class="eyebrow">Camp registration</div><h2>Parent / Guardian Application</h2><p><strong>Online completion only:</strong> You must fill in this application form online. After completing all required fields, choose to submit your application online or download a PDF copy of your completed form.</p></div><div class="form-wrap"><div id="successNotice" class="success-notice" role="status" aria-live="polite"><strong>✓ Your application has been submitted.</strong> <span>We appreciate your application to Gaza Disciplinary Camp.</span></div><div id="successToast" class="success-toast" role="alert" aria-live="assertive"><strong>✓ Application submitted.</strong><small>Thank you. Your application has been sent for review.</small></div><div class="notice"><strong>Important:</strong> Please complete all required fields accurately. Applications are reviewed by Gaza Disciplinary Camp.</div><div class="privacy" style="margin-bottom:22px"><strong>Application delivery:</strong> Applications are sent to <strong>disciplinary.futurity@gmail.com</strong> through the camp’s Google Apps Script mail service. After submitting, follow the confirmation message displayed by the Google Apps Script service. The website administrator must ensure the web app is deployed with access set to <strong>Anyone</strong>.</div><form id="campApplicationForm" action="https://script.google.com/macros/s/AKfycbw8mNl5GXx9zbxbkOlWz7WhIbVDh4eYuXJheTyki1aDre2yFQ3rsSKTP2lEOkh6mc0/exec" method="POST" onsubmit="return validateApplication()"><input type="hidden" name="Application_Type" value="Gaza Disciplinary Camp Parent/Guardian Application"><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+</div></nav></header><main id="top"><section class="page-hero"><div class="container"><div class="eyebrow">Discipline • Character • Growth</div><h1>Camp Application</h1><p>Apply to join Gaza Disciplinary Camp and take the next step towards positive growth, responsibility and leadership.</p></div></section><section id="application" class="application"><div class="container"><div class="section-head"><div class="eyebrow">Camp registration</div><h2>Parent / Guardian Application</h2><p><strong>Online completion only:</strong> You must fill in this application form online. After completing all required fields, choose to submit your application online or download a PDF copy of your completed form.</p></div><div class="form-wrap"><div id="successNotice" class="success-notice" role="status" aria-live="polite"><strong>✓ Your application has been submitted.</strong> <span>We appreciate your application to Gaza Disciplinary Camp.</span><div id="applicationReference" style="margin-top:8px"></div></div><div id="successToast" class="success-toast" role="alert" aria-live="assertive"><strong>✓ Application submitted.</strong><small>Thank you. Your application has been sent for review.</small></div><div class="notice"><strong>Important:</strong> Please complete all required fields accurately. Applications are reviewed by Gaza Disciplinary Camp.</div><div class="privacy" style="margin-bottom:22px"><strong>Secure application delivery:</strong> Your application and the three required documents are uploaded through the camp’s Google Apps Script service, saved in a restricted Google Drive folder owned by the camp administrator, and emailed to <strong>disciplinary.futurity@gmail.com</strong>.</div><form id="campApplicationForm" onsubmit="return handleApplicationSubmit(this)"><input type="hidden" name="Application_Type" value="Gaza Disciplinary Camp Parent/Guardian Application"><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
 <div class="form-section"><h3>1. Parent / Guardian Information</h3><div class="form-grid"><div><label for="parentFirstName">First Name <span class="required">*</span></label><input class="control" id="parentFirstName" name="Parent_First_Name" required autocomplete="given-name" placeholder="Enter first name"></div><div><label for="parentSurname">Surname <span class="required">*</span></label><input class="control" id="parentSurname" name="Parent_Surname" required autocomplete="family-name" placeholder="Enter surname"></div><div><label for="parentContact">Contact Number <span class="required">*</span></label><input class="control" id="parentContact" type="tel" name="Parent_Contact_Number" required autocomplete="tel" placeholder="e.g. 083 123 4567"></div><div><label for="parentEmail">Email Address <span class="required">*</span></label><input class="control" id="parentEmail" type="email" name="Parent_Email" required autocomplete="email" placeholder="Enter email address"></div></div></div>
 <div class="form-section"><h3>2. Child / Young Person</h3><div class="form-grid"><div><label for="childFirstName">Child's First Name <span class="required">*</span></label><input class="control" id="childFirstName" name="Child_First_Name" required></div><div><label for="childSurname">Child's Surname <span class="required">*</span></label><input class="control" id="childSurname" name="Child_Surname" required></div><div><label for="childAge">Child's Age <span class="required">*</span></label><input class="control" id="childAge" type="number" name="Child_Age" min="9" max="100" required placeholder="Minimum age: 9"></div><div><label for="gender">Gender <span class="required">*</span></label><select class="control" id="gender" name="Child_Gender" required><option value="">Select gender</option><option>Male</option><option>Female</option><option>Other</option></select></div></div></div>
 <div class="form-section"><h3>3. Camp Duration</h3><div class="form-grid"><div><label for="applicationDuration">Number of Days <span class="required">*</span></label><select class="control" id="applicationDuration" name="Camp_Duration" onchange="updateApplicationFee()" required><option value="">Select duration</option><option value="7 Days">7 Days — R1,500</option><option value="15 Days">15 Days — R3,800</option><option value="30 Days">30 Days / 1 Month — R4,500</option></select></div><div><label for="applicationFee">Applicable Camp Fee</label><input class="control" id="applicationFee" name="Camp_Fee" readonly placeholder="Select duration"></div></div><div class="duration-table-wrap" aria-live="polite"><table class="duration-table"><thead><tr><th>Camp Duration</th><th>Days</th><th>Camp Fee</th><th>Equipment</th></tr></thead><tbody><tr><td id="selectedDuration">Please select</td><td id="selectedDays">—</td><td id="selectedTableFee">—</td><td id="selectedEquipment">—</td></tr></tbody></table></div><div class="included" id="applicationIncluded"><strong>✓ Package inclusions</strong><ul id="applicationEquipmentList"><li>Select a duration above to view all package inclusions.</li></ul></div></div>
 <div class="form-section"><h3>4. Reason for Application</h3><label for="reason">Why would you like your child to attend? <span class="required">*</span></label><textarea class="control textarea" id="reason" name="Reason_For_Application" maxlength="2000" required placeholder="Explain the reason for the application and how the programme may support your child."></textarea></div>
 <div class="form-section"><h3>5. Parent / Guardian Consent</h3><p>I confirm that I am the parent or legal guardian of the young person named in this application.</p><p>I understand that Gaza Disciplinary Camp is a youth development programme intended to promote discipline, character development, education, skills, leadership, responsibility and positive community participation.</p><p>I understand that participation is subject to the camp's rules, safety procedures, code of conduct and acceptance process.</p><p>I confirm that the information provided is accurate to the best of my knowledge.</p><div class="check"><input type="checkbox" id="consent" name="Parent_Guardian_Consent" value="I agree to the Gaza Disciplinary Camp terms and conditions" required><label for="consent"><strong>I am the parent/legal guardian and I agree to the Gaza Disciplinary Camp terms and conditions.</strong> <span class="required">*</span></label></div></div>
-<div class="form-section"><h3>6. Supporting Documents</h3><p>To protect applicants’ information and ensure documents are not lost, this online form does not upload files. If supporting documents are required, email them separately to <strong>disciplinary.futurity@gmail.com</strong> after submitting the application. Include the child’s name in the email subject.</p><div class="privacy">Accepted document formats: PDF, JPG, JPEG and PNG. Only send documents that are required for the application.</div></div>
+<div class="form-section"><h3>6. Supporting Documents</h3>
+<p>Please attach the following supporting documents to your application. Use clear, readable scans or photographs.</p>
+<div class="form-grid">
+  <div class="full">
+    <label for="certifiedId">Certified copy of Identity Document (ID) <span class="required">*</span></label>
+    <input class="control" id="certifiedId" name="Certified_ID_Document" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required>
+    <div class="help">Attach the certified ID document. Do not enter only the ID number.</div>
+  </div>
+  <div class="full">
+    <label for="affidavit">Completed Affidavit Form <span class="required">*</span></label>
+    <input class="control" id="affidavit" name="Affidavit_Form" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required>
+  </div>
+  <div class="full">
+    <label for="medicalCertificate">Medical Certificate <span class="required">*</span></label>
+    <input class="control" id="medicalCertificate" name="Medical_Certificate" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required>
+  </div>
+</div>
+<div class="privacy" style="margin-top:16px"><strong>Accepted formats:</strong> PDF, JPG, JPEG and PNG. Attach files that are clear and readable. These documents contain personal information; submit them only through the camp’s approved, secure application channel.</div>
+</div>
 <div class="form-section"><h3>7. Declaration</h3><div class="check"><input type="checkbox" id="declaration" name="Declaration" value="I confirm that the information supplied is accurate" required><label for="declaration">I confirm that the information supplied in this application is accurate and complete to the best of my knowledge. <span class="required">*</span></label></div></div>
-<div class="submit">
+<div id="submissionStatus" class="privacy" style="display:none;margin:18px 0" role="status" aria-live="polite"></div><div class="submit">
 <p><strong>Important:</strong> This form must be completed online first. Once you have entered your information, you may either submit the application online or download a PDF copy of the completed form and send it via WhatsApp.</p>
 <button class="btn green" id="submitApplicationButton" type="submit">Submit Camp Application</button>
 <button class="btn primary" type="button" onclick="downloadApplicationPDF()">Download Completed PDF</button>
@@ -79,30 +97,180 @@ label{font-weight:800;display:block;margin-bottom:8px}.control{width:100%;paddin
 <p>© 2026 Gaza Disciplinary Camp. All rights reserved.</p>
 </div></footer>
 <script>
-function updateApplicationFee(){const d=document.getElementById('applicationDuration').value;const packages={'7 Days':{fee:'R1,500',days:'7',items:['⚽ Sports and team-building equipment','📊 Respect and accountability','📅 3 days monitoring after the camp']},'15 Days':{fee:'R3,800',days:'15',items:['⚽ Sports and team-building equipment','📊 Respect and accountability','💻 Computers and computer-learning equipment','📱 Tablets for supervised educational activities','📅 7 days monitoring after the camp']},'30 Days':{fee:'R4,500',days:'30',items:['💻 Computers and computer-learning equipment','📱 Tablets for supervised educational activities','🏋️ Gym and fitness equipment for exercise and weight-loss goals','⚽ Sports and team-building equipment','📚 Educational and practical learning materials','📅 7 days monitoring after the camp','📊 Respect and accountability']}};const x=packages[d];const fee=document.getElementById('applicationFee');const tableEquipment=document.getElementById('selectedEquipment');const tableDuration=document.getElementById('selectedDuration');const tableDays=document.getElementById('selectedDays');const tableFee=document.getElementById('selectedTableFee');const list=document.getElementById('applicationEquipmentList');const selectedFee=x?x.fee:'';fee.value=selectedFee;if(x){fee.setAttribute('aria-label','Applicable camp fee: '+selectedFee);tableDuration.textContent=d;tableDays.textContent=x.days;tableFee.textContent=selectedFee;tableEquipment.textContent='Included';list.innerHTML=x.items.map(item=>'<li>'+item+'</li>').join('')}else{fee.removeAttribute('aria-label');tableDuration.textContent='Please select';tableDays.textContent='-';tableFee.textContent='-';tableEquipment.textContent='-';list.innerHTML='<li>Select a duration above to view all package inclusions.</li>'}}
-function downloadApplicationPDF(){
-  const form = document.querySelector('#application form');
-  if(!form){alert('Application form could not be found.');return;}
-  const originalTitle = document.title;
-  document.title = 'Gaza Disciplinary Camp - Application Form';
-  window.print();
-  document.title = originalTitle;
+// Google Apps Script Web App endpoint (deployed as a Web App).
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbza6r3B-GbVGijWNjQmBafSwCZeGrdFg4uMXCZwmLK2PWPuF4ZThvj4DghZ_aPD4Shb/exec";
+const MAX_FILE_SIZE = 8 * 1024 * 1024;
+const ALLOWED_MIME_TYPES = ['application/pdf', 'image/jpeg', 'image/png'];
+
+function updateApplicationFee(){
+  const d=document.getElementById('applicationDuration').value;
+  const packages={
+    '7 Days':{fee:'R1,500',days:'7',items:['⚽ Sports and team-building equipment','📊 Respect and accountability','📅 3 days monitoring after the camp']},
+    '15 Days':{fee:'R3,800',days:'15',items:['⚽ Sports and team-building equipment','📊 Respect and accountability','💻 Computers and computer-learning equipment','📱 Tablets for supervised educational activities','📅 7 days monitoring after the camp']},
+    '30 Days':{fee:'R4,500',days:'30',items:['💻 Computers and computer-learning equipment','📱 Tablets for supervised educational activities','🏋️ Gym and fitness equipment for exercise and weight-loss goals','⚽ Sports and team-building equipment','📚 Educational and practical learning materials','📅 7 days monitoring after the camp','📊 Respect and accountability']}
+  };
+  const x=packages[d], fee=document.getElementById('applicationFee');
+  const tableEquipment=document.getElementById('selectedEquipment');
+  const tableDuration=document.getElementById('selectedDuration');
+  const tableDays=document.getElementById('selectedDays');
+  const tableFee=document.getElementById('selectedTableFee');
+  const list=document.getElementById('applicationEquipmentList');
+  fee.value=x?x.fee:'';
+  if(x){
+    fee.setAttribute('aria-label','Applicable camp fee: '+x.fee);
+    tableDuration.textContent=d; tableDays.textContent=x.days;
+    tableFee.textContent=x.fee; tableEquipment.textContent='Included';
+    list.innerHTML=x.items.map(item=>'<li>'+item+'</li>').join('');
+  } else {
+    fee.removeAttribute('aria-label'); tableDuration.textContent='Please select';
+    tableDays.textContent='-'; tableFee.textContent='-'; tableEquipment.textContent='-';
+    list.innerHTML='<li>Select a duration above to view all package inclusions.</li>';
+  }
 }
+
+function showStatus(message, isError){
+  const box=document.getElementById('submissionStatus');
+  box.style.display='block';
+  box.style.background=isError?'#fff0ef':'#e8f7ee';
+  box.style.color=isError?'#8a1c13':'#14532d';
+  box.textContent=message;
+  box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
 function validateApplication(){
   const form=document.getElementById('campApplicationForm');
-  const age=Number(document.getElementById('childAge').value);
-  if(!Number.isFinite(age)||age<9){alert('The minimum age for Gaza Disciplinary Camp is 9 years.');document.getElementById('childAge').focus();return false}
-  if(!document.getElementById('consent').checked){alert('Please confirm your Parent/Guardian consent before submitting the application.');return false}
-  if(!document.getElementById('declaration').checked){alert('Please confirm the declaration before submitting the application.');return false}
-  const endpoint=form.getAttribute('action')||'';
-  if(!endpoint.startsWith('https://script.google.com/macros/s/') || !endpoint.endsWith('/exec')){
-    alert('The application email service is not configured correctly. Please contact the camp administrator.');
+  if(!form.reportValidity()) return false;
+
+  const supportingFiles=[
+    {id:'certifiedId',label:'certified copy of the ID document'},
+    {id:'affidavit',label:'completed Affidavit Form'},
+    {id:'medicalCertificate',label:'Medical Certificate'}
+  ];
+  let totalBytes=0;
+  for(const item of supportingFiles){
+    const field=document.getElementById(item.id);
+    if(!field.files || !field.files.length){
+      alert('Please attach the '+item.label+'.'); field.focus(); return false;
+    }
+    const file=field.files[0];
+    const extOk=/\.(pdf|jpe?g|png)$/i.test(file.name);
+    if(!ALLOWED_MIME_TYPES.includes(file.type) && !extOk){
+      alert('The '+item.label+' must be a PDF, JPG or PNG file.'); field.focus(); return false;
+    }
+    if(file.size>MAX_FILE_SIZE){
+      alert(file.name+' is larger than 8 MB. Please compress it and try again.');
+      field.focus(); return false;
+    }
+    totalBytes+=file.size;
+  }
+  if(totalBytes>15*1024*1024){
+    alert('The three documents together must be no larger than 15 MB. Please compress the files and try again.');
     return false;
   }
-  const button=document.getElementById('submitApplicationButton');
-  if(button){button.disabled=true;button.textContent='Submitting application…'}
+  const age=Number(document.getElementById('childAge').value);
+  if(!Number.isFinite(age)||age<9){
+    alert('The minimum age for Gaza Disciplinary Camp is 9 years.');
+    document.getElementById('childAge').focus(); return false;
+  }
   return true;
 }
-document.addEventListener('DOMContentLoaded',()=>{updateApplicationFee();});
-function toggleMenu(){const links=document.getElementById('links'),btn=document.querySelector('.menu');links.classList.toggle('open');btn.setAttribute('aria-expanded',links.classList.contains('open'))}document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('links').classList.remove('open');document.querySelector('.menu').setAttribute('aria-expanded','false')}));});
+
+function fileToBase64(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>resolve(String(reader.result).split(',')[1] || '');
+    reader.onerror=()=>reject(new Error('Could not read '+file.name));
+    reader.readAsDataURL(file);
+  });
+}
+
+async function handleApplicationSubmit(form){
+  if(!validateApplication()) return false;
+  const button=document.getElementById('submitApplicationButton');
+  button.disabled=true; button.textContent='Uploading documents and submitting…';
+  showStatus('Preparing your application and supporting documents. Please keep this page open.',false);
+
+  try{
+    const fields={};
+    for(const [key,value] of new FormData(form).entries()){
+      if(value instanceof File) continue;
+      if(fields[key] !== undefined){
+        fields[key]=Array.isArray(fields[key]) ? fields[key].concat(value) : [fields[key],value];
+      } else {
+        fields[key]=value;
+      }
+    }
+
+    const fileFields=[
+      {id:'certifiedId',name:'Certified_ID_Document'},
+      {id:'affidavit',name:'Affidavit_Form'},
+      {id:'medicalCertificate',name:'Medical_Certificate'}
+    ];
+    const attachments=[];
+    for(const item of fileFields){
+      const file=document.getElementById(item.id).files[0];
+      attachments.push({
+        fieldName:item.name,
+        fileName:file.name,
+        mimeType:file.type || 'application/octet-stream',
+        size:file.size,
+        base64:await fileToBase64(file)
+      });
+    }
+
+    const payload={action:'processApplication',fields,attachments};
+    showStatus('Sending your application and three supporting documents securely. Please wait for the response.',false);
+
+    // text/plain avoids a browser CORS preflight. The Apps Script doPost(e)
+    // must parse JSON from e.postData.contents and return JSON via ContentService.
+    const response=await fetch(GOOGLE_SCRIPT_URL,{
+      method:'POST',
+      redirect:'follow',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify(payload)
+    });
+
+    let result;
+    try{ result=await response.json(); }
+    catch(_){ throw new Error('The script did not return a readable confirmation. Check that the deployed Code.gs doPost(e) returns JSON and permits this website.'); }
+
+    if(!response.ok || !result || result.ok !== true){
+      throw new Error((result && result.message) || 'The application could not be submitted.');
+    }
+
+    document.getElementById('successNotice').classList.add('show');
+    document.getElementById('applicationReference').textContent='Reference: '+(result.applicationId || 'Received');
+    showStatus('Your application and all three supporting documents were received successfully.',false);
+    form.reset();
+    updateApplicationFee();
+    document.getElementById('successNotice').scrollIntoView({behavior:'smooth',block:'center'});
+  }catch(error){
+    showStatus('Submission could not be confirmed: '+(error && error.message ? error.message : error)+'. Please try again or contact the camp administrator.',true);
+  }finally{
+    button.disabled=false;
+    button.textContent='Submit Camp Application';
+  }
+  return false;
+}
+
+function downloadApplicationPDF(){
+  const form=document.querySelector('#application form');
+  if(!form){alert('Application form could not be found.');return;}
+  const originalTitle=document.title;
+  document.title='Gaza Disciplinary Camp - Application Form';
+  window.print();
+  document.title=originalTitle;
+}
+function toggleMenu(){
+  const links=document.getElementById('links'),btn=document.querySelector('.menu');
+  links.classList.toggle('open');
+  btn.setAttribute('aria-expanded',links.classList.contains('open'));
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  updateApplicationFee();
+  document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>{
+    document.getElementById('links').classList.remove('open');
+    document.querySelector('.menu').setAttribute('aria-expanded','false');
+  }));
+});
 </script></body></html>
