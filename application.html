@@ -98,7 +98,7 @@ label{font-weight:800;display:block;margin-bottom:8px}.control{width:100%;paddin
 </div></footer>
 <script>
 // Google Apps Script Web App endpoint (deployed as a Web App).
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzoZmLGrZVQNiwJQ5WN3Q8DKP1sH1rLV9hU9jKICtctuyfD6CPotAwfEdrc33Q2QrI/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBFT9XfK3afX9p2I3uHLCtVTcQjVQItA4KWZG4CrGub1p5qj68zgVQjzRe3YuGka0/exec";
 const MAX_FILE_SIZE = 8 * 1024 * 1024;
 const ALLOWED_MIME_TYPES = ['application/pdf', 'image/jpeg', 'image/png'];
 
@@ -184,21 +184,68 @@ function fileToBase64(file){
   });
 }
 
+let activeSubmissionId = null;
+let submissionFrame = null;
+let submissionTimeout = null;
+
+function getFileMimeType(file){
+  if(file.type && ALLOWED_MIME_TYPES.includes(file.type)) return file.type;
+  const ext=(file.name.split('.').pop() || '').toLowerCase();
+  if(ext==='pdf') return 'application/pdf';
+  if(ext==='jpg' || ext==='jpeg') return 'image/jpeg';
+  if(ext==='png') return 'image/png';
+  return '';
+}
+
+function cleanupSubmissionTransport(){
+  if(submissionTimeout) clearTimeout(submissionTimeout);
+  submissionTimeout=null;
+  if(submissionFrame){
+    submissionFrame.remove();
+    submissionFrame=null;
+  }
+  const oldForm=document.getElementById('gdcTransportForm');
+  if(oldForm) oldForm.remove();
+  activeSubmissionId=null;
+}
+
+window.addEventListener('message',function(event){
+  const data=event.data;
+  if(!data || data.type!=='GDC_APPLICATION_RESULT' ||
+     !activeSubmissionId || data.requestId!==activeSubmissionId) return;
+
+  const button=document.getElementById('submitApplicationButton');
+  cleanupSubmissionTransport();
+
+  if(data.result && data.result.ok===true){
+    const form=document.getElementById('campApplicationForm');
+    document.getElementById('successNotice').classList.add('show');
+    document.getElementById('applicationReference').textContent=
+      'Reference: '+(data.result.applicationId || 'Received');
+    showStatus('Your application and all three supporting documents were received successfully.',false);
+    form.reset();
+    updateApplicationFee();
+    document.getElementById('successNotice').scrollIntoView({behavior:'smooth',block:'center'});
+  }else{
+    showStatus('Google Apps Script could not process the application: '+
+      ((data.result && data.result.message) || 'Unknown server error. Please try again.'),true);
+  }
+  button.disabled=false;
+  button.textContent='Submit Camp Application';
+});
+
 async function handleApplicationSubmit(form){
   if(!validateApplication()) return false;
   const button=document.getElementById('submitApplicationButton');
-  button.disabled=true; button.textContent='Uploading documents and submitting…';
+  button.disabled=true;
+  button.textContent='Uploading documents and submitting…';
   showStatus('Preparing your application and supporting documents. Please keep this page open.',false);
 
   try{
     const fields={};
     for(const [key,value] of new FormData(form).entries()){
       if(value instanceof File) continue;
-      if(fields[key] !== undefined){
-        fields[key]=Array.isArray(fields[key]) ? fields[key].concat(value) : [fields[key],value];
-      } else {
-        fields[key]=value;
-      }
+      fields[key]=value;
     }
 
     const fileFields=[
@@ -209,46 +256,56 @@ async function handleApplicationSubmit(form){
     const attachments=[];
     for(const item of fileFields){
       const file=document.getElementById(item.id).files[0];
+      const mimeType=getFileMimeType(file);
+      if(!mimeType) throw new Error('Unsupported file type: '+file.name);
       attachments.push({
         fieldName:item.name,
         fileName:file.name,
-        mimeType:file.type || 'application/octet-stream',
+        mimeType:mimeType,
         size:file.size,
         base64:await fileToBase64(file)
       });
     }
 
-    const payload={action:'processApplication',fields,attachments};
-    showStatus('Sending your application and three supporting documents securely. Please wait for the response.',false);
+    const payload={action:'processApplication',fields:fields,attachments:attachments};
+    activeSubmissionId='GDC-'+Date.now()+'-'+Math.random().toString(36).slice(2);
 
-    // text/plain avoids a browser CORS preflight. The Apps Script doPost(e)
-    // must parse JSON from e.postData.contents and return JSON via ContentService.
-    const response=await fetch(GOOGLE_SCRIPT_URL,{
-      method:'POST',
-      redirect:'follow',
-      headers:{'Content-Type':'text/plain;charset=utf-8'},
-      body:JSON.stringify(payload)
-    });
+    // Submit through a hidden iframe. This avoids browser CORS restrictions
+    // on Apps Script ContentService redirects from GitHub Pages.
+    submissionFrame=document.createElement('iframe');
+    submissionFrame.name='gdcSubmissionFrame';
+    submissionFrame.title='Application submission';
+    submissionFrame.style.display='none';
+    document.body.appendChild(submissionFrame);
 
-    let result;
-    try{ result=await response.json(); }
-    catch(_){ throw new Error('The script did not return a readable confirmation. Check that the deployed Code.gs doPost(e) returns JSON and permits this website.'); }
+    const transportForm=document.createElement('form');
+    transportForm.id='gdcTransportForm';
+    transportForm.method='POST';
+    transportForm.action=GOOGLE_SCRIPT_URL;
+    transportForm.target=submissionFrame.name;
+    transportForm.style.display='none';
 
-    if(!response.ok || !result || result.ok !== true){
-      throw new Error((result && result.message) || 'The application could not be submitted.');
-    }
+    const payloadInput=document.createElement('input');
+    payloadInput.type='hidden';
+    payloadInput.name='payload';
+    payloadInput.value=JSON.stringify({requestId:activeSubmissionId,payload:payload});
+    transportForm.appendChild(payloadInput);
+    document.body.appendChild(transportForm);
 
-    document.getElementById('successNotice').classList.add('show');
-    document.getElementById('applicationReference').textContent='Reference: '+(result.applicationId || 'Received');
-    showStatus('Your application and all three supporting documents were received successfully.',false);
-    form.reset();
-    updateApplicationFee();
-    document.getElementById('successNotice').scrollIntoView({behavior:'smooth',block:'center'});
+    showStatus('Sending your application and three supporting documents to Google. Please keep this page open.',false);
+    submissionTimeout=setTimeout(function(){
+      cleanupSubmissionTransport();
+      button.disabled=false;
+      button.textContent='Submit Camp Application';
+      showStatus('No confirmation was received from Google Apps Script. Check that the latest web app deployment is active and try again.',true);
+    },120000);
+
+    transportForm.submit();
   }catch(error){
-    showStatus('Submission could not be confirmed: '+(error && error.message ? error.message : error)+'. Please try again or contact the camp administrator.',true);
-  }finally{
+    cleanupSubmissionTransport();
     button.disabled=false;
     button.textContent='Submit Camp Application';
+    showStatus('Submission could not be started: '+(error && error.message ? error.message : error),true);
   }
   return false;
 }
