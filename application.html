@@ -98,7 +98,7 @@ label{font-weight:800;display:block;margin-bottom:8px}.control{width:100%;paddin
 </div></footer>
 <script>
 // Google Apps Script Web App endpoint (deployed as a Web App).
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzBFT9XfK3afX9p2I3uHLCtVTcQjVQItA4KWZG4CrGub1p5qj68zgVQjzRe3YuGka0/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbycFv9DK8ML1jFSC_ekY8p8h2lKnwotJmFHSBFCzl_7J4fKErMBDQH0huErefjdn0Mc/exec";
 const MAX_FILE_SIZE = 8 * 1024 * 1024;
 const ALLOWED_MIME_TYPES = ['application/pdf', 'image/jpeg', 'image/png'];
 
@@ -210,6 +210,8 @@ function cleanupSubmissionTransport(){
 }
 
 window.addEventListener('message',function(event){
+  // Apps Script may relay through a Google iframe, so do not hard-code an
+  // origin here. The unguessable requestId is checked before accepting a reply.
   const data=event.data;
   if(!data || data.type!=='GDC_APPLICATION_RESULT' ||
      !activeSubmissionId || data.requestId!==activeSubmissionId) return;
@@ -268,10 +270,13 @@ async function handleApplicationSubmit(form){
     }
 
     const payload={action:'processApplication',fields:fields,attachments:attachments};
+    if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(GOOGLE_SCRIPT_URL)){
+      throw new Error('The Google Apps Script web app URL is missing or invalid. Please contact the camp administrator.');
+    }
     activeSubmissionId='GDC-'+Date.now()+'-'+Math.random().toString(36).slice(2);
 
-    // Submit through a hidden iframe. This avoids browser CORS restrictions
-    // on Apps Script ContentService redirects from GitHub Pages.
+    // Submit through a hidden iframe. Apps Script returns a small HTML page
+    // that posts the matching result back to the top-level page.
     submissionFrame=document.createElement('iframe');
     submissionFrame.name='gdcSubmissionFrame';
     submissionFrame.title='Application submission';
